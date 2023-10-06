@@ -1,0 +1,90 @@
+#backgroundHue {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  mix-blend-mode: hue ;
+  background-color: var(--bg-color);
+  -webkit-transition: background-color 1000ms linear;
+  -ms-transition: background-color 1000ms linear;
+  transition: background-color 1000ms linear;
+}
+
+.background {
+  position: absolute;
+  width: 100%;
+  height: calc(100vh + 100px) !important;
+  background-size: 112vw 150vh;
+}
+
+#layer-bg{
+  background-image: url(@/assets/images/parallax/layer-0.png),
+}
+
+#layer-1{ 
+  background-image: url(@/assets/images/parallax/layer-4.png), 
+                    url(@/assets/images/parallax/layer-3.png), 
+                    url(@/assets/images/parallax/layer-2.png), 
+                    url(@/assets/images/parallax/layer-1.png);
+ }
+
+#layer-2{ 
+  background-image: url(@/assets/images/parallax/layer-6.png),
+                    url(@/assets/images/parallax/layer-5.png); 
+}
+
+
+.fog {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  background: #fff;
+}
+
+.fog-container {
+  position: absolute;
+  width: 100%;
+  height: calc(100vh + 100px) !important;
+  overflow: hidden;
+}
+
+.fog-img {
+  position: absolute;
+  height: calc(100vh + 100px) !important;
+  width: 300vw;
+}
+
+.fog-img-first {
+  background: url(@/assets/images/parallax/fog-1.png);
+  background-repeat: repeat-x;
+  background-size: contain;
+  background-position: center;
+  animation: marquee 60s linear infinite;
+}
+
+.fog-img-second {
+  background: url(@/assets/images/parallax/fog-2.png);
+  background-repeat: repeat-x;
+  background-size: contain;
+  background-position: center;
+  animation: marquee 30s linear infinite;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0;
+  }
+
+  5%{
+    opacity: 1;
+  }
+
+  95% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate3d(-200vw, 0, 0);
+    opacity: 0;
+  }
+}
