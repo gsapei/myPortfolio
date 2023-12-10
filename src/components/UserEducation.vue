@@ -8,7 +8,7 @@
       <v-col class="px-0">
         <h4> {{ data.title }} </h4> 
         <p style="color: gray;"> ({{ data.year }}) </p>         
-        <p style="text-align: justify;"> {{ data.institute }} </p>            
+        <p> {{ data.institute }} </p>            
       </v-col>
     </v-row>  
   </div>

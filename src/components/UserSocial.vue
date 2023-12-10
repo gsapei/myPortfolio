@@ -2,7 +2,7 @@
     <v-row class="px-4">
       <v-col>
 
-        <v-row class="pt-6 notPrintable">
+        <v-row class="notPrintable">
           <h2 class="text-primary">REDES SOCIALES</h2> 
         </v-row>        
       

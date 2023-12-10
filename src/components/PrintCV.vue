@@ -65,9 +65,9 @@
 
 <script>
 import userHeader from '@/components/UserHeader.vue';
-import userSkills from '@/components/UserSkills.vue';
+import userSkills from '@/components/userSkillsCV.vue';
 import userLanguages from '@/components/UserLanguages.vue';
-import userExperience from '@/components/UserExperience.vue';
+import userExperience from '@/components/UserExperienceCV.vue';
 import userContact from '@/components/UserContact.vue';
 import userEducation from '@/components/UserEducation.vue';
 import userDescription from '@/components/UserDescription.vue';
@@ -89,20 +89,24 @@ export default {
         // Open the print window
         const WinPrint = window.open('', '', 'left=0,top=0,width=800,height=900,toolbar=0,scrollbars=0,status=0');
 
-        WinPrint.document.write(`<!DOCTYPE html>
+        WinPrint.document.write(`
+        <!DOCTYPE html>
         <html>
-        <head>
-            ${stylesHtml}
-        </head>
-        <body>
-            ${prtHtml}
-        </body>
-        </html>`);
-
+          <head>
+              ${stylesHtml}
+          </head>
+          <body>
+              ${prtHtml}
+          </body>
+        </html>`
+        );
         WinPrint.document.close();
-        WinPrint.focus();
-        WinPrint.print();
-        WinPrint.close();
+
+        setTimeout(() => {
+          WinPrint.focus();
+          WinPrint.print();
+          WinPrint.close();
+        }, 300);
 
     }
 
@@ -124,21 +128,21 @@ export default {
 
 <style lang="scss" scoped>
 
-p {
-color: black;
-}
-
-h4 {
-color: black;
-}
-
-
-.divider {
-    width: 0;
-    margin: 0 auto;
-    height: 100%;
-    border: 2px solid;
+  p {
+  color: black;
   }
+
+  h4 {
+  color: black;
+  }
+
+
+  .divider {
+      width: 0;
+      margin: 0 auto;
+      height: 100%;
+      border: 2px solid;
+    }
 
   
   .leftParagraph{

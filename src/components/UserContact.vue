@@ -18,16 +18,6 @@
               </v-col>
             </v-row>
 
-            
-            <v-row v-for="data in userSocial" :key="data" class="progressPrinted">
-              <v-col cols="1" class="px-0">
-                <v-icon color="primary" :icon="data.icon" class="icons"></v-icon>
-              </v-col>
-              <v-col cols="11">
-                <span class="pl-1"> {{ 'http://' + data.link}} </span>
-              </v-col>
-            </v-row>
-
           </v-col>
         </v-row>
 
@@ -35,7 +25,7 @@
           <v-col>
             <v-row v-for="data in userContact" :key="data">
               <v-col class="pl-0">
-                <p > {{ data.text }} </p>
+                <p> {{ data.text }} </p>
               </v-col>
             </v-row>
           </v-col>

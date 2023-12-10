@@ -1,18 +1,13 @@
 <template>
         
         <v-row v-if="screenSize.width>600" class="titleContainer pa-5">
-              <h1 class="titleItem pb-0" v-if="screenSize.width>600">{{ principalTitle.toUpperCase() }}</h1>
-              <h1 v-else class="pb-0">{{ principalTitle.toUpperCase() }}</h1>
+              <h1 class="titleItem pb-0">{{ principalTitle.toUpperCase() }}</h1>
               <h3 class="subtitleItem text-primary pt-0 pl-1">{{ principalSubtitle.toUpperCase() }}</h3>
-
         </v-row>
 
-        <v-row v-else style="text-align: left;" class="pl-0 pb-6">
-
-          <h1 v-if="screenSize.width>600" class="pb-4">{{ principalTitle.toUpperCase() }}</h1>
-          <h1 v-else class="pb-0">{{ principalTitle.toUpperCase() }}</h1>
-          <h3 class="text-primary">{{ principalSubtitle.toUpperCase() }}</h3>
-
+        <v-row v-else style="text-align: left; display: grid;" class="pl-4 pb-6">
+          <h1 class="titleItem pb-1">{{ principalTitle.toUpperCase() }}</h1>
+          <h3 class="subtitleItem text-primary pt-0 pl-0">{{ principalSubtitle.toUpperCase() }}</h3>
         </v-row>
         
 
@@ -56,7 +51,6 @@ export default {
 
 <style lang="scss" scoped>
 
-
   .titleContainer{
     display: flex;
     flex-direction: column;
@@ -71,55 +65,15 @@ export default {
 
   .titleItem{
     line-height: 0.9em;
+    // -webkit-text-stroke: 2px;
+    // -webkit-text-fill-color: rgba($color: #000000, $alpha: 0.1);
   }
 
   .subtitleItem{
     line-height: 0.9em;
+    // -webkit-text-stroke: 2px;
+    // -webkit-text-fill-color: rgba($color: #FFFFFF, $alpha: 0.6);
   }
-
-@media screen and (min-width: 920px){
-
-  h1{
-    font-size: 35pt;
-    font-family: PoppinsBold;
-  }
-
-  h3{
-    font-size: 24pt;
-    font-family: PoppinsBold;
-  }
-
-}
-@media screen and (max-width: 920px){
-
-  h1{
-    font-size: 35pt;
-    font-weight: bolder;
-    font-family: PoppinsBold;
-  }
-
-  h3{
-    font-size: 19pt;
-    font-family: PoppinsBold;
-  }
-
-}
-@media screen and (max-width: 600px){
-
-  h1{
-    font-size: 25pt;
-  }
-
-  h3{
-    font-size: 15pt;
-  } 
-
-}
-
-@media print{
-  
-}
-
 
 @import "@/css/variables.scss";
 </style>

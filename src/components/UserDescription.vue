@@ -1,12 +1,10 @@
 <template>
-  <div>
-    <v-row>
-      <h2 class="px-4 text-primary">INTRODUCCION</h2> 
-    </v-row>
-    <v-row class="px-4 py-2" style="text-align: justify;">
-      <p v-html="userDescription"></p>
-    </v-row>
-  </div>
+  <v-row>
+    <h2 class="px-4 text-primary">INTRODUCCION</h2> 
+  </v-row>
+  <v-row class="px-4 py-2">
+    <p v-html="userDescription"></p>
+  </v-row>
 </template>
 
 <script>

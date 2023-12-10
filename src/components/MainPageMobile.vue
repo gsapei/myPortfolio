@@ -4,52 +4,43 @@
       
       <v-card-actions class="notPrintable">
         <v-spacer></v-spacer>
-        <v-btn class="actionButton" size="small" variant="plain" icon="fa-solid fa-language" @click="changeLanguage()"></v-btn>
+        <v-btn class="actionButton pr-3" size="small" variant="plain" icon="fa-solid fa-language" @click="changeLanguage()"></v-btn>
       </v-card-actions>
       
       <v-row> 
         <v-col> 
-          <userHeader :userData="userData"/> 
+          <userHeader/> 
         </v-col> 
       </v-row>
       
-      <v-row> 
-        <v-col class="pb-6"> 
-          <userDescription :userData="userData"/> 
+      <v-row class="pb-6"> 
+        <v-col> 
+          <userDescription/> 
         </v-col> 
       </v-row>
       
-      <v-row class="pb-6 pr-4"> 
+      <v-row class="pb-6"> 
+        <v-col> 
+          <userEducation/> 
+        </v-col> 
+      </v-row> 
 
+      <v-row class="pb-6">
         
         <v-col cols="6"> 
-          <v-row> 
-            <v-col> 
-              <userContact :userData="userData"/> 
-            </v-col> 
-          </v-row> 
+          <userContact/> 
         </v-col> 
-
+          
         <v-col cols="6"> 
-          <v-row> 
-            <v-col> 
-              <userEducation :userData="userData"/> 
-            </v-col> 
-          </v-row> 
-          <v-row> 
-            <v-col> 
-              <userSocial :userData="userData"/> 
-            </v-col> 
-          </v-row> 
+          <userSocial/> 
         </v-col> 
-
-
 
       </v-row>
-      <v-row class="pb-6" > <v-col> <userLanguages :userData="userData"/> </v-col> </v-row> 
-      <v-row> <v-col> <userSkills :userData="userData"/> </v-col> </v-row>
-      <v-row> <v-col> <userExperience :userData="userData"/> </v-col> </v-row>
-      <v-row> <v-col> <userProjects :userData="userData"/> </v-col> </v-row>
+
+      <v-row class="pb-6" > <v-col> <userLanguages/> </v-col> </v-row> 
+      <v-row class="pb-6" > <v-col> <userSkills/> </v-col> </v-row>
+      <v-row class="pb-6" > <v-col> <userExperience/> </v-col> </v-row>
+      <v-row class="pb-6" > <v-col> <userProjects/> </v-col> </v-row>
     </v-col>
   </v-container>
 
@@ -57,57 +48,37 @@
 
 
 <script>
-import { ref, defineAsyncComponent } from "vue"
+import { computed } from "vue"
+import { useStore } from 'vuex';
 import { data } from '../data'
 
-const userData = ref(null);
-const languages = ref(null)
-
-userData.value = data[0];
-
-//ASYNC COMPONENTS:
-const userHeader = defineAsyncComponent(() =>
-  import('@/components/UserHeader.vue')
-)
-const userSkills = defineAsyncComponent(() =>
-  import('@/components/UserSkills.vue')
-)
-const userLanguages = defineAsyncComponent(() =>
-  import('@/components/UserLanguages.vue')
-)
-const userExperience = defineAsyncComponent(() =>
-  import('@/components/UserExperience.vue')
-)
-const userContact = defineAsyncComponent(() =>
-  import('@/components/UserContact.vue')
-)
-const userSocial = defineAsyncComponent(() =>
-  import('@/components/UserSocial.vue')
-)
-const userEducation = defineAsyncComponent(() =>
-  import('@/components/UserEducation.vue')
-)
-const userDescription = defineAsyncComponent(() =>
-  import('@/components/UserDescription.vue')
-)
-const userProjects = defineAsyncComponent(() =>
-  import('@/components/UserProjects.vue')
-)
+// COMPONENTS:
+import userHeader from '@/components/UserHeader.vue';
+import userSkills from '@/components/UserSkills.vue';
+import userLanguages from '@/components/UserLanguages.vue';
+import userExperience from '@/components/UserExperience.vue';
+import userContact from '@/components/UserContact.vue';
+import userSocial from '@/components/UserSocial.vue';
+import userEducation from '@/components/UserEducation.vue';
+import userDescription from '@/components/UserDescription.vue';
+import userProjects from '@/components/UserProjects.vue';
 
 export default {
   name: "MainPageMobile",
   setup() {
 
-    const selectedLanguage = ref(0);
+    const store = useStore();
+    store.dispatch('setData',data);
 
+    const templateLanguage = computed(() => store.getters['getTemplateLanguage']);
+    
     const changeLanguage = () => {
-      selectedLanguage.value == 0 ? selectedLanguage.value = 1 : selectedLanguage.value = 0 
-      userData.value=data[selectedLanguage.value];
-      //getData(languages.value[selectedLanguage.value]).then( res => { userData.value=res; })
+      //Hardcoding :S
+      if(templateLanguage.value === 'spanish') { store.dispatch('setTemplateLanguage','english'); }
+      else { store.dispatch('setTemplateLanguage','spanish'); }
     }
 
     return {
-      userData,
       changeLanguage
     }
   },

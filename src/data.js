@@ -82,50 +82,46 @@ export const data = [
                 },
             ],
             userLanguages: [
-            { name: 'Español: Nativo ', percent: 100 }, 
-            { name: 'Ingles: Medio', percent: 65 }
+            { name: 'Español: Nativo ', percent:100 }, 
+            { name: 'Ingles: Medio', percent:65 }
             ],
             userSkills: [
                 {
                 category: 'frontend',
                 skills: [
-                    { name: 'HTML', percent: 90 },
-                    { name: 'CSS/Sass', percent: 90 },
-                    { name: 'React', percent: 80 },
-                    { name: 'Vue.js', percent: 90 },
-                    { name: 'Quasar', percent: 80 },
-                    { name: 'Vuetify', percent: 70 },
-                    { name: 'Bootstrap', percent: 50 },  
+                    { name: 'HTML', icon:'devicon-html5-plain' },
+                    { name: 'CSS/Sass', icon:'devicon-css3-plain' },
+                    { name: 'React', icon:'devicon-react-original' },
+                    { name: 'Vue.js', icon:'devicon-vuejs-plain' },
+                    { name: 'Vuetify', icon:'devicon-vuetify-line' },
+                    { name: 'Bootstrap', icon:'devicon-bootstrap-plain' },  
                     ]
                 },
                 {
                 category: 'Backend',
                 skills: [
-                    { name: 'Node.js', percent: 80 },  
-                    { name: 'Python', percent: 70 },  
-                    { name: 'Ruby', percent: 70 },  
-                    { name: 'PHP', percent: 50 },  
-                    { name: 'Bash', percent: 40 },  
-                    { name: 'C++', percent: 50 },  
+                    { name: 'Node.js', icon:'devicon-nodejs-plain' },  
+                    { name: 'Python', icon:'devicon-python-plain' },  
+                    { name: 'Ruby', icon:'devicon-ruby-plain' },  
                     ]  
                 },  
                 {
-                category: 'Base de datos',
+                category: 'Bases de datos',
                 skills: [
-                    { name: 'MySQL', percent: 60 },  
-                    { name: 'OracleSQL', percent: 60 },  
-                    { name: 'PostgreSQL', percent: 60 },  
-                    { name: 'MongoDB', percent: 40 },  
+                    { name: 'MySQL', icon:'devicon-mysql-plain' },  
+                    { name: 'OracleSQL', icon:'devicon-oracle-plain' },  
+                    { name: 'PostgreSQL', icon:'devicon-postgresql-plain' },  
+                    { name: 'MongoDB', icon:'devicon-mongodb-plain' },  
                     ]
                 },
                 {
                 category: 'Otras',
                 skills: [
-                    { name: 'Javascript', percent: 90 },
-                    { name: 'Typescript', percent: 60 },
-                    { name: 'Linux', percent: 80}, 
-                    { name: 'Docker', percent: 60 },  
-                    { name: 'GIT', percent: 60 }, 
+                    { name: 'Javascript', icon:'devicon-javascript-plain' },
+                    { name: 'Typescript', icon:'devicon-typescript-plain' },
+                    { name: 'Linux', icon:'devicon-linux-plain'}, 
+                    { name: 'Docker', icon:'devicon-docker-plain' },  
+                    { name: 'GIT', icon:'devicon-git-plain' }, 
                     ]
                 }
             ],
@@ -150,7 +146,7 @@ export const data = [
                         `,
                     technologies: [
                         'Python', 
-                        'Shell scripting',
+                        'Shell',
                         'Node.JS',
                         'Express',
                         'Sockets.IO',
@@ -331,50 +327,46 @@ export const data = [
             },
         ],
         userLanguages: [
-        { name: 'Spanish', percent: 100 }, 
-        { name: 'English', percent: 65 }
+        { name: 'Spanish', icon:100 }, 
+        { name: 'English', icon:65 }
         ],
         userSkills: [
             {
             category: 'frontend',
             skills: [
-                { name: 'HTML', percent: 90 },
-                { name: 'CSS/Sass', percent: 90 },
-                { name: 'React', percent: 80 },
-                { name: 'Vue.js', percent: 90 },
-                { name: 'Quasar', percent: 80 },
-                { name: 'Vuetify', percent: 70 },
-                { name: 'Bootstrap', percent: 50 },  
+                { name: 'HTML', icon:'devicon-html5-plain' },
+                { name: 'CSS/Sass', icon:'devicon-css3-plain' },
+                { name: 'React', icon:'devicon-react-original' },
+                { name: 'Vue.js', icon:'devicon-vuejs-plain' },
+                { name: 'Vuetify', icon:'devicon-vuetify-line' },
+                { name: 'Bootstrap', icon:'devicon-bootstrap-plain' },  
                 ]
             },
             {
             category: 'Backend',
             skills: [
-                { name: 'Node.js', percent: 80 },  
-                { name: 'Python', percent: 70 },  
-                { name: 'Ruby', percent: 70 },  
-                { name: 'PHP', percent: 50 },  
-                { name: 'Bash', percent: 40 },  
-                { name: 'C++', percent: 50 },  
+                { name: 'Node.js', icon:'devicon-nodejs-plain' },  
+                { name: 'Python', icon:'devicon-python-plain' },  
+                { name: 'Ruby', icon:'devicon-ruby-plain' },  
                 ]  
             },  
             {
-            category: 'Database',
+            category: 'Bases de datos',
             skills: [
-                { name: 'MySQL', percent: 60 },  
-                { name: 'OracleSQL', percent: 60 },  
-                { name: 'PostgreSQL', percent: 60 },  
-                { name: 'MongoDB', percent: 40 },  
+                { name: 'MySQL', icon:'devicon-mysql-plain' },  
+                { name: 'OracleSQL', icon:'devicon-oracle-plain' },  
+                { name: 'PostgreSQL', icon:'devicon-postgresql-plain' },  
+                { name: 'MongoDB', icon:'devicon-mongodb-plain' },  
                 ]
             },
             {
-            category: 'Others',
+            category: 'Otras',
             skills: [
-                { name: 'Javascript', percent: 90 },
-                { name: 'Typescript', percent: 60 },
-                { name: 'Linux', percent: 80}, 
-                { name: 'Docker', percent: 60 },  
-                { name: 'GIT', percent: 60 }, 
+                { name: 'Javascript', icon:'devicon-javascript-plain' },
+                { name: 'Typescript', icon:'devicon-typescript-plain' },
+                { name: 'Linux', icon:'devicon-linux-plain'}, 
+                { name: 'Docker', icon:'devicon-docker-plain' },  
+                { name: 'GIT', icon:'devicon-git-plain' }, 
                 ]
             }
         ],

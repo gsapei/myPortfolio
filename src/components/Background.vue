@@ -16,12 +16,16 @@ export default {
 
     const layer1 = ref(null);
     const layer2 = ref(null);
+    const maxScrollY = 290;
 
     onMounted(() => {
 
       //fix initial position
         layer1.value.style.backgroundPositionX = `50%`;
         layer2.value.style.backgroundPositionX = `50%`;
+
+        resetParallaxVertical();
+       
         // the DOM element will be assigned to the ref after initial render
         document.addEventListener("mousemove", parallaxHorizontal);
         document.addEventListener("scroll", parallaxVertical);
@@ -34,7 +38,7 @@ export default {
         let _mouseX = e.clientX;
         let _depth0, _depth1, _depth2, _depth3, _depth4;
   
-        // layer 1 movement
+        // layer 1 (wide) movement
         _depth0 = `50%`;
         _depth1 = `${50 + (_mouseX - _w) * 0.01}%`;
         _depth2 = `${50 + (_mouseX - _w) * 0.015}%`;
@@ -43,8 +47,8 @@ export default {
         let x = `${_depth4}, ${_depth3}, ${_depth2}, ${_depth1}, ${_depth0}`;
         layer1.value.style.backgroundPositionX = x;
   
-        //layer 2 movement
-        _depth1 = `${50 + (_mouseX - _w) * 0.055}%`;
+        //layer 2 (close) movement
+        _depth1 = `${50 + (_mouseX - _w) * 0.05}%`;
         _depth2 = `${50 + (_mouseX - _w) * 0.07}%`;
         x = `${_depth2}, ${_depth1}`;
         layer2.value.style.backgroundPositionX = x;
@@ -55,18 +59,16 @@ export default {
     // Move layers of background vertically
     const parallaxVertical = (e) => {
       try{
-        var scrollPosition = window.scrollY;
-        var limit = layer1.value.offsetTop + layer1.value.offsetHeight;  
         let y, _depth1, _depth2, _depth3, _depth4;
-        if (scrollPosition <= 228){   
-          _depth1 = `${scrollY * 0.040}%`;
-          _depth2 = `${scrollY * 0.026}%`;
+        if (scrollY <= maxScrollY){   
+          _depth1 = `${-scrollY * 0.040}%`;
+          _depth2 = `${-scrollY * 0.026}%`;
           _depth3 = `${scrollY * 0.14}%`;
           _depth4 = `${scrollY * 0.18}%`;
           y = `${_depth4}, ${_depth3}, ${_depth2}, ${_depth1}`;
           layer1.value.style.backgroundPositionY = y;
   
-          _depth1 = `${scrollY * 0.27}%`;
+          _depth1 = `${scrollY * 0.21}%`;
           _depth2 = `${scrollY * 0.34}%`;
           y = `${_depth2}, ${_depth1}`;
           layer2.value.style.backgroundPositionY = y;
@@ -76,9 +78,28 @@ export default {
 
     }
 
+    // when refreshing page in a scrollY position > maxScrollY, and fix problem calling vuetify dialog
+    const resetParallaxVertical = (e) => {
+      if (scrollY > maxScrollY){   
+          let y, _depth1, _depth2, _depth3, _depth4;
+          _depth1 = `${-maxScrollY * 0.040}%`;
+          _depth2 = `${-maxScrollY * 0.026}%`;
+          _depth3 = `${maxScrollY * 0.14}%`;
+          _depth4 = `${scrollY * 0.18}%`;
+          y = `${_depth4}, ${_depth3}, ${_depth2}, ${_depth1}`;
+          layer1.value.style.backgroundPositionY = y;
+  
+          _depth1 = `${maxScrollY * 0.21}%`;
+          _depth2 = `${maxScrollY * 0.34}%`;
+          y = `${_depth2}, ${_depth1}`;
+          layer2.value.style.backgroundPositionY = y;
+        }
+    }
+
     return {
         layer1,
         layer2,
+        resetParallaxVertical
     }
   }
 };

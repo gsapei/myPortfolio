@@ -47,6 +47,7 @@ export default createVuetify({
     }
   },
   theme: {
+    options: { customProperties: true },
     defaultTheme: 'themeBlue',
     themes: {
       themeBlue,
